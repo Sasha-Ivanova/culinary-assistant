@@ -28,38 +28,15 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
-def buter_view(request):
+def dish_view(request, dish):
     servings = request.GET.get('servings')
     if servings is not None:
         data = {}
-        for k, v in DATA['buter'].items():
-            data[k] = int(v) * int(servings)
-        context = {'recipe': data}
-        return render(request, 'calculator/index.html', context)
-    else:
-        context = {'recipe': DATA['buter']}
-        return render(request, 'calculator/index.html', context)
-
-def pasta_view(request):
-    servings = request.GET.get('servings')
-    if servings is not None:
-        data = {}
-        for k, v in DATA['pasta'].items():
+        for k, v in DATA[dish].items():
             data[k] = float(v) * int(servings)
         context = {'recipe': data}
         return render(request, 'calculator/index.html', context)
     else:
-        context = {'recipe': DATA['pasta']}
+        context = {'recipe': DATA[dish]}
         return render(request, 'calculator/index.html', context)
 
-def omlet_view(request):
-    servings = request.GET.get('servings')
-    if servings is not None:
-        data = {}
-        for k,v in DATA['omlet'].items():
-            data[k] = float(v) * int(servings)
-        context = {'recipe': data}
-        return render(request, 'calculator/index.html', context)
-    else:
-        context = {'recipe': DATA['omlet']}
-        return render(request, 'calculator/index.html', context)

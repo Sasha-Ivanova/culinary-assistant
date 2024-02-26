@@ -20,7 +20,5 @@ from calculator.views import omlet_view, pasta_view, buter_view
 
 urlpatterns = [
     # здесь зарегистрируйте вашу view-функцию
-path('omlet/', omlet_view),
-    path('pasta/', pasta_view),
-    path('buter/', buter_view)
+path('<dish>/', dish_view, name='dish')
 ]
