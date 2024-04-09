@@ -28,6 +28,8 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+
 def dish_view(request, dish):
     servings = request.GET.get('servings')
     if servings is not None:
@@ -39,4 +41,3 @@ def dish_view(request, dish):
     else:
         context = {'recipe': DATA[dish]}
         return render(request, 'calculator/index.html', context)
-
